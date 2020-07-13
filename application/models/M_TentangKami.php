@@ -39,6 +39,17 @@
             }
         }
 
+        public function showAll(){
+          $query = $this->db->get($this->table);
+          if ($query->num_rows() > 0) {
+            $data = $query->result_array();
+            foreach ($data as $key => $value) {
+              $data[$key]["id_tentang"] = encrypt_decrypt("encrypt", $value["id_tentang"], $this->secret_key, $this->secret_iv);
+            }
+            return $data;
+          }
+        }
+
         public function insert(){
             $post = $this->input->post();
             if (!empty($post)){
