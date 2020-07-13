@@ -2,12 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>KSU Mandiri Sukses</title>
-  <meta content="" name="descriptison">
-  <meta content="" name="keywords">
+  
 
   <?php $this->load->view("user/partial/css"); ?>
 
@@ -84,21 +79,23 @@
   <main id="main">
 
     <!-- ======= Layanan Section ======= -->
-    <section id="layanan" class="services">
+    <section id="layanan" class="about-lists">
       <div class="container">
 
         <div class="section-title">
           <h2>Layanan</h2>
         </div>
 
-        <div class="row justify-content-around">
+        <div class="row no-gutters">
+
           <?php $i=1; foreach($layanan as $lay):?>
-          <div class="col-lg-4 col-md-6  icon-box" data-aos="fade-up">
-            <div class="icon"><i class="icofont-number"><?= $i ?></i></div>
-            <h4 class="title"><a href="<?= site_url('layanan/detail/').$lay['id_layanan'] ?>"><?= $lay['nama_layanan'] ?></a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+          <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up">
+            <span><?= $i ?></span>
+            <h4><a href="<?= site_url('layanan/detail/').$lay['id_layanan'] ?>"><?= $lay['nama_layanan'] ?></a></h4>
+            <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
           </div>
           <?php $i++; endforeach ?>
+
         </div>
 
       </div>

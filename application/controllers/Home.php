@@ -8,9 +8,10 @@ class Home extends CI_Controller {
 		$this->load->model("M_TentangKami");
 	}
     public function index(){
+		$data['judul']="KSU Mandiri Sukses";
+		$data['halaman']="home";
 		$data['layanan']=$this->M_Layanan->showAll();
 		$data['tentang']=$this->M_TentangKami->showAll();
-		// var_dump($data['layanan']);
 		$this->load->view('user/home/home.php',$data);
 	}
 }
