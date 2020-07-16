@@ -15,18 +15,16 @@
             </div>
 
             <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Dinas Terkait</h4>
             <ul>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                <?php foreach($linkDinasTerkait as $linkDinas): ?>
+                <li><i class="bx bx-chevron-right"></i> <a href="<?= $linkDinas['link'] ?>"><?= $linkDinas['nama'] ?></a></li>
+                <?php endforeach ?>
             </ul>
             </div>
 
             <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Layanan Kampus</h4>
             <ul>
                 <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
                 <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>

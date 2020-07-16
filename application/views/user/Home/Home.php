@@ -92,7 +92,7 @@
           <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up">
             <span><?= $i ?></span>
             <h4><a href="<?= site_url('layanan/detail/').$lay['id_layanan'] ?>"><?= $lay['nama_layanan'] ?></a></h4>
-            <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
+            <!-- <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p> -->
           </div>
           <?php $i++; endforeach ?>
 

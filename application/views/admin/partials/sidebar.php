@@ -135,6 +135,31 @@
             </ul>
           </li>
 
+          <!-- Link Dinas Terkait -->
+          <li class="nav-item has-treeview <?php if($sidebar=='Tabel Link Dinas Terkait' || $sidebar=='Tambah Link Dinas Terkait') { echo 'menu-open'; } ?>">
+            <a href="#" class="nav-link <?php if($sidebar=='Tabel Link Dinas Terkait' || $sidebar=='Tambah Link Dinas Terkait') { echo 'active'; } ?>">
+              <i class="nav-icon fa fa-link"></i>
+              <p>
+                Link Dinas Terkait
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo site_url('admin/linkDinasTerkait/table') ?>" class="nav-link <?php if($sidebar=='Tabel Link Dinas Terkait') { echo 'active'; } ?>">
+                  <i class="fa fa-caret-right nav-icon" style="margin-left: 25px;"></i>
+                  <p>Table</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('admin/linkDinasTerkait/add') ?>" class="nav-link <?php if($sidebar=='Tambah Link Dinas Terkait') { echo 'active'; } ?>">
+                  <i class="fa fa-caret-right nav-icon" style="margin-left: 25px;"></i>
+                  <p>Add</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
