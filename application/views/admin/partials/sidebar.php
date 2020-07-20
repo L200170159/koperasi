@@ -34,7 +34,7 @@
             </a>
           </li>
 
-          <?php if($session["level"]=="root"){ ?>
+          
           <li class="nav-item has-treeview <?php if($sidebar=='account-table' || $sidebar=='account-add') { echo 'menu-open'; } ?>">
             <a href="#" class="nav-link <?php if($sidebar=='account-table' || $sidebar=='account-add') { echo 'active'; } ?>">
               <i class="nav-icon fa fa-user-circle"></i>
@@ -58,7 +58,6 @@
               </li>
             </ul>
           </li>
-          <?php } ?>
 
           <!-- layanan -->
           <li class="nav-item has-treeview <?php if($sidebar=='Tabel Layanan' || $sidebar=='Tambah Layanan') { echo 'menu-open'; } ?>">
@@ -152,7 +151,32 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo site_url('admin/linkDinasTerkait/add') ?>" class="nav-link <?php if($sidebar=='Tambah Link Dinas Terkait') { echo 'active'; } ?>">
+                <a href="<?php echo site_url('admin/linkDinasTerkait/add') ?>" class="nav-link <?php if($sidebar=='Tambah Link Layanan Kampus') { echo 'active'; } ?>">
+                  <i class="fa fa-caret-right nav-icon" style="margin-left: 25px;"></i>
+                  <p>Add</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Link Dinas Terkait -->
+          <li class="nav-item has-treeview <?php if($sidebar=='Tabel Link Layanan Kampus' || $sidebar=='Tambah Link Layanan Kampus') { echo 'menu-open'; } ?>">
+            <a href="#" class="nav-link <?php if($sidebar=='Tabel Link Layanan Kampus' || $sidebar=='Tambah Link Layanan Kampus') { echo 'active'; } ?>">
+              <i class="nav-icon fa fa-link"></i>
+              <p>
+                Link Layanan Kampus
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo site_url('admin/linkLayananKampus/table') ?>" class="nav-link <?php if($sidebar=='Tabel Link Layanan Kampus') { echo 'active'; } ?>">
+                  <i class="fa fa-caret-right nav-icon" style="margin-left: 25px;"></i>
+                  <p>Table</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('admin/linkLayananKampus/add') ?>" class="nav-link <?php if($sidebar=='Tambah Link Layanan Kampus') { echo 'active'; } ?>">
                   <i class="fa fa-caret-right nav-icon" style="margin-left: 25px;"></i>
                   <p>Add</p>
                 </a>

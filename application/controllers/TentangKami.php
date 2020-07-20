@@ -5,7 +5,8 @@ class TentangKami extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("M_TentangKami");
-		$this->load->model("M_linkDinasTerkait");
+        $this->load->model("M_linkDinasTerkait");
+        $this->load->model("M_linkLayananKampus");
     }
     
     public function index(){
@@ -25,6 +26,7 @@ class TentangKami extends CI_Controller {
                 redirect(site_url(),"refresh");
             } else {
                 $data['linkDinasTerkait']=$this->M_linkDinasTerkait->getAll();
+                $data['linkLayananKampus']=$this->M_linkLayananKampus->getAll();
                 $data['lainnya']=$this->M_TentangKami->showAll();
                 $data['judul']=$data['tentang']['nama_tentang'];
                 $data['halaman']="inner";

@@ -100,7 +100,7 @@ class Account extends CI_Controller {
 	}
 
 	public function table(){
-    $sess = $this->M_Auth->session(array("root"));
+    $sess = $this->M_Auth->session(array("root","admin"));
     if ($sess === FALSE) {
       redirect(site_url("admin/dashboard/logout"),"refresh");
     } else {
@@ -111,7 +111,7 @@ class Account extends CI_Controller {
   }
   
   public function add(){
-    $sess = $this->M_Auth->session(array("root"));
+    $sess = $this->M_Auth->session(array("root","admin"));
     if ($sess === FALSE) {
       redirect(site_url("admin/dashboard/logout"),"refresh");
     } else {

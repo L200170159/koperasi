@@ -19,6 +19,7 @@ class API extends CI_Controller {
     $this->load->model("M_TentangKami");
     $this->load->model("M_Anggota");
     $this->load->model("M_linkDinasTerkait");
+    $this->load->model("M_linkLayananKampus");
   }
 
   public function account($mode=null){
@@ -30,9 +31,6 @@ class API extends CI_Controller {
       $secret_iv = $this->M_Account->secret_iv ;
 
       if (strtolower($mode) == "data") {
-        if ($sess["level"] != "root") {
-          redirect(site_url("admin/dashboard/logout"),"refresh");
-        } else {
           $query = $this->db->get("account");
           if ($query->num_rows() > 0) {
             $data = $query->result_array();
@@ -43,13 +41,9 @@ class API extends CI_Controller {
           } else {
             echo json_encode(false);
           }
-        }
       } 
       
       elseif (strtolower($mode) == "update") {
-        if ($sess["level"] != "root") {
-          redirect(site_url("admin/dashboard/logout"),"refresh");
-        } else {
           $post = $this->input->post();
           if ( !empty($post["id"]) && !empty($post["isactive"]) ) {
             $isactive = "true";
@@ -84,13 +78,9 @@ class API extends CI_Controller {
             );
           }
           echo json_encode($response);
-        }
       }
 
       elseif (strtolower($mode) == "delete"){
-        if ($sess["level"] != "root") {
-          redirect(site_url("admin/dashboard/logout"),"refresh");
-        } else {
           $post = $this->input->post();
           if (!empty($post["id"])) {
             $id = encrypt_decrypt("decrypt", $post["id"], $secret_key, $secret_iv);
@@ -125,7 +115,6 @@ class API extends CI_Controller {
             );
           }
           echo json_encode($response);
-        }
       }
 
       elseif (strtolower($mode) == "delete-img"){
@@ -459,7 +448,7 @@ class API extends CI_Controller {
     }
   }
 
-  // Anggota
+  // link Dinas Terkait
   public function linkDinasTerkait($mode=null){
     $sess = $this->M_Auth->session(array("root","admin"));
     if ($sess === FALSE) {
@@ -489,6 +478,63 @@ class API extends CI_Controller {
           if ($linkDinasTerkait != null){
             $this->db->where("id_linkDinasTerkait", $id);
             if($this->db->delete("linkDinasTerkait")){
+              $response = array(
+                "status" => "success",
+                "message" => "Success delete data",
+              );
+            } else {
+              $response = array(
+                "status" => "error",
+                "message" => "Failed delete data",
+              );
+            }
+          } else {
+            $response = array(
+              "status" => "error",
+              "message" => "Data not found!",
+            );
+          }
+        } else {
+          $response = array(
+            "status" => "error",
+            "message" => "Data not found!",
+          );
+        }
+        echo json_encode($response);
+      }
+    }
+  }
+
+  // link Layanan Kampus
+  public function linkLayananKampus($mode=null){
+    $sess = $this->M_Auth->session(array("root","admin"));
+    if ($sess === FALSE) {
+      redirect(site_url("admin/dashboard/logout"),"refresh");
+    } else {
+      $secret_key = $this->M_linkLayananKampus->secret_key ;
+      $secret_iv = $this->M_linkLayananKampus->secret_iv ;
+
+      if (strtolower($mode) == "data") {
+        $query = $this->db->get("linkLayananKampus");
+        if ($query->num_rows() > 0) {
+          $data = $query->result_array();
+          foreach ($data as $key => $value) {
+            $data[$key]["id_linkLayananKampus"] = encrypt_decrypt("encrypt", $value["id_linkLayananKampus"], $secret_key, $secret_iv);
+          }
+          echo json_encode($data);
+        } else {
+          echo json_encode(false);
+        }
+      } 
+
+      elseif (strtolower($mode) == "delete"){
+        $post = $this->input->post();
+        if (!empty($post["id"])) {
+          $id = encrypt_decrypt("decrypt", $post["id"], $secret_key, $secret_iv);
+          $linkLayananKampus = $this->M_linkLayananKampus->getById($id);
+          if ($linkLayananKampus != null){
+            $this->db->where("id_linkLayananKampus", $id);
+            if($this->db->delete("linkLayananKampus")){
               $response = array(
                 "status" => "success",
                 "message" => "Success delete data",

@@ -3,7 +3,7 @@
 <div class="container">
 
     <div class="logo float-left">
-    <h1 class="text-light"><a href="index.html"><span><img src="<?= base_url()?>assets/img/logo.png" alt="" class="img-fluid">  KSU Mandiri Sukses</span></a></h1>
+    <h1 class="text-light"><a href="<?= base_url() ?>"><span><img src="<?= base_url()?>assets/img/logo.png" alt="" class="img-fluid">  KSU Mandiri Sukses</span></a></h1>
     <!-- Uncomment below if you prefer to use an image logo -->
     </div>
 

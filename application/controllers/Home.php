@@ -7,9 +7,11 @@ class Home extends CI_Controller {
 		$this->load->model("M_Layanan");
 		$this->load->model("M_TentangKami");
 		$this->load->model("M_linkDinasTerkait");
+		$this->load->model("M_linkLayananKampus");
 	}
     public function index(){
 		$data['linkDinasTerkait']=$this->M_linkDinasTerkait->getAll();
+		$data['linkLayananKampus']=$this->M_linkLayananKampus->getAll();
 		$data['judul']="KSU Mandiri Sukses";
 		$data['halaman']="home";
 		$data['layanan']=$this->M_Layanan->showAll();

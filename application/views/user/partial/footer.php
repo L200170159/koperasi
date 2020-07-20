@@ -18,7 +18,7 @@
             <h4>Dinas Terkait</h4>
             <ul>
                 <?php foreach($linkDinasTerkait as $linkDinas): ?>
-                <li><i class="bx bx-chevron-right"></i> <a href="<?= $linkDinas['link'] ?>"><?= $linkDinas['nama'] ?></a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="<?= $linkDinas['link'] ?> " target="_blank"><?= $linkDinas['nama'] ?></a></li>
                 <?php endforeach ?>
             </ul>
             </div>
@@ -26,11 +26,9 @@
             <div class="col-lg-3 col-md-6 footer-links">
             <h4>Layanan Kampus</h4>
             <ul>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                <?php foreach($linkLayananKampus as $linkLayanan): ?>
+                <li><i class="bx bx-chevron-right"></i> <a href="<?= $linkLayanan['link'] ?> "target="_blank"><?= $linkLayanan['nama'] ?></a></li>
+                <?php endforeach ?>
             </ul>
             </div>
 

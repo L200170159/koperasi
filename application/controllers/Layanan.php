@@ -6,6 +6,7 @@ class Layanan extends CI_Controller {
 		parent::__construct();
 		$this->load->model("M_Layanan");
 		$this->load->model("M_linkDinasTerkait");
+		$this->load->model("M_linkLayananKampus");
     }
     
     public function index(){
@@ -25,6 +26,7 @@ class Layanan extends CI_Controller {
                 redirect(site_url(),"refresh");
             } else {
                 $data['linkDinasTerkait']=$this->M_linkDinasTerkait->getAll();
+                $data['linkLayananKampus']=$this->M_linkLayananKampus->getAll();
                 $data['layananlain']=$this->M_Layanan->showAll();
                 $data['judul']=$data['layanan']['nama_layanan'];
                 $data['halaman']="inner";
